@@ -12,6 +12,6 @@ def generate_puzzle(image, piece_size):
              for i, j in product(width_steps, height_steps))
 
     pieces = (image.crop(box) for box in boxes)
-    shuffled = sorted(pieces, key=lambda x: random.random())
+    random.shuffle(pieces)
 
-    return shuffled, len(width_steps), len(height_steps)
+    return pieces, len(width_steps), len(height_steps)

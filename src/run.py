@@ -9,7 +9,7 @@ from PIL import Image
 import measures
 from puzzle_generator import generate_puzzle
 from puzzle_solver import PuzzleSolver
-from helpers import read_pieces, clear_directory
+from helpers import read_pieces
 
 
 def parse_args():
@@ -49,8 +49,7 @@ if __name__ == '__main__':
     args = parse_args()
     if args.generate:
         if not os.path.exists(args.output):
-            os.mkdir(args.output)
-        clear_directory(args.output)
+            os.makedirs(args.output)
 
         image = Image.open(args.input)
         pieces, puzzle_width, puzzle_height = generate_puzzle(image, args.piece_size)

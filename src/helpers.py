@@ -29,11 +29,6 @@ def list_images(directory):
     return image_paths
 
 
-def clear_directory(directory):
-    for image in list_images(directory):
-        os.remove(image)
-
-
 def read_pieces(directory):
     image_paths = list_images(directory)
     pieces = [Image.open(f) for f in image_paths]
